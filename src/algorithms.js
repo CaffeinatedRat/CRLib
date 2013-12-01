@@ -38,7 +38,7 @@ CaffeinatedRat.Algorithms.Sort = function (compareFunc) {
 
     //Default to the ascending comparison function if one is not supplied.
     if (compareFunc === undefined)
-        this.compareFunc = Sort.prototype.ascending;
+        this.compareFunc = CaffeinatedRat.Algorithms.Sort.prototype.ascending;
     else
         this.compareFunc = compareFunc;
 
@@ -82,23 +82,23 @@ CaffeinatedRat.Algorithms.Sort.prototype = {
 
         this.IQuickSort(arr, 0, arr.length - 1);
 
+    },
+
+    ascending: function (a, b) {
+
+        /// <summary>An ascending comparison function that uses the comparison operators.</summary>
+        /// <returns type="Number">Returns 0 if a == b, -1 if a &lt; b, and 1 if a &gt; b</returns>
+        return ((a == b) ? 0 : ((a < b) ? -1 : 1));
+
+    },
+
+    descending: function (a, b) {
+
+        /// <summary>A descending comparison function that uses the comparison operators.</summary>
+        /// <returns type="Number">Returns 0 if a == b, 1 if a &lt; b, and -1 if a &gt; b</returns>
+        return ((a == b) ? 0 : ((a < b) ? 1 : -1));
+
     }
-
-}
-
-CaffeinatedRat.Algorithms.Sort.ascending = function (a, b) {
-
-    /// <summary>An ascending comparison function that uses the comparison operators.</summary>
-    /// <returns type="Number">Returns 0 if a == b, -1 if a &lt; b, and 1 if a &gt; b</returns>
-    return ((a == b) ? 0 : ((a < b) ? -1 : 1));
-
-}
-
-CaffeinatedRat.Algorithms.Sort.descending = function (a, b) {
-
-    /// <summary>A descending comparison function that uses the comparison operators.</summary>
-    /// <returns type="Number">Returns 0 if a == b, 1 if a &lt; b, and -1 if a &gt; b</returns>
-    return ((a == b) ? 0 : ((a < b) ? 1 : -1));
 
 }
 
